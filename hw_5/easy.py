@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import time
 
@@ -5,7 +6,7 @@ import aiofiles
 import aiohttp
 
 URL = 'https://thisartworkdoesnotexist.com'
-N = 20
+N = 0
 
 
 async def main():
@@ -19,4 +20,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('n', type=int)
+    args = parser.parse_args()
+    N = args.n
     asyncio.run(main())
